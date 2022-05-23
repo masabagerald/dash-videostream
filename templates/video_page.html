@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{% block title %}Video streaming with DASH{% endblock %}</h1>
+    <style>
+
+        video {
+            width: 640px;
+            height: 360px;
+        }
+    </style>
+    <video id="videoplayer" controls></video>
+
+    <video data-dashjs-player autoplay src="https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd" controls>
+    </video>
+{% endblock %}
+
+  <script src="{{ url_for('static', filename='dash/dash.all.min.js') }}"></script>
+  <script>
+    // setup the video element and attach it to the Dash player
+    function setupVideo() {
+      var url = "http://wams.edgesuite.net/media/MPTExpressionData02/BigBuckBunny_1080p24_IYUV_2ch.ism/manifest(format=mpd-time-csf)";
+      var context = new Dash.di.DashContext();
+      var player = new MediaPlayer(context);
+                      player.startup();
+                      player.attachView(document.querySelector("#videoplayer"));
+                      player.attachSource(url);
+    }
+    </script>
+
+

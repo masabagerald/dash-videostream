@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <nav>
+        <a href="">FlaskApp</a>
+        <a href="">Create</a>
+        <a href="#">About</a>
+    </nav>
+    <div class="container">
+  <h2>Basic Table</h2>
+  <p>Museveni speech videos</p>
+     <a href="/admin/new">Create</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Video</th>
+        <th>Description</th>
+          <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for video in videos %}
+      <tr>
+        <td>{{ video.title }}</td>
+        <td>{{ video.photo_path }}</td>
+        <td>{{ video.comments }}</td>
+        <td>
+            <button>Edit</button>
+            <button>Delete</button>
+        </td>
+      </tr>
+    {% endfor %}
+
+
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+{% endblock %}
+
+</body>
+</html>

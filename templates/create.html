@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form class="form-check" method="post" enctype="multipart/form-data" action="/admin/new">
+          <label>Title*</label></td>
+          <input name="title" type="text" class="text-info form-control" required="required" />
+          <label>Video Upload</label>
+          <input name="video_clip" type="file" class="text-info form-control" required="required" />
+          <label>Notes</label>
+
+          <textarea class="text-info form-control" name="notes">notes</textarea>
+
+          <input name="btn_submit" type="submit" class="btn-info form-control" />
+    </form>
+
+
+
+
+
+{% endblock %}
+
+</body>
+</html>
